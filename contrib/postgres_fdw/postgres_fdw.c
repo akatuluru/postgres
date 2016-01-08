@@ -77,7 +77,7 @@ typedef struct PgFdwRelationInfo
 	bool		use_remote_estimate;
 	Cost		fdw_startup_cost;
 	Cost		fdw_tuple_cost;
-	
+
 	/* Cached catalog information. */
 	ForeignTable *table;
 	ForeignServer *server;
@@ -1025,10 +1025,10 @@ postgresIterateForeignScan(ForeignScanState *node)
 	 * cursor on the remote side.
 	 */
 	if (!fsstate->cursor_exists)
-    {
+	{
 		gettimeofday(&(fsstate->start_time), NULL);
 		create_cursor(node);
-    }
+	}
 
 	/*
 	 * Get some more tuples, if we've run out.
